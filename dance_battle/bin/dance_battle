@@ -1,0 +1,33 @@
+#!/usr/bin/env ruby
+
+require File.dirname(__FILE__) + '/../lib/dance_battle'
+
+battle = DanceBattle.new
+
+puts "Welcome to the dance battle\n"
+puts "Please enter the amount of moves allowed:"
+
+battle.moves_allowed = gets.strip
+
+puts "Thanks. Now please enter the number of dances already performed:"
+
+dances_already_performed = gets.strip.to_i
+
+puts "Thanks. Please enter the moves that have already been performed.
+      Please separate each move with a comma - 0,1"
+
+      
+dances_already_performed.times do
+  battle << gets.strip.split(',')
+end
+
+puts "Mmmm I wonder if your going to win??..."
+
+sleep(2)
+
+if battle.i_win?
+  puts "Look whose the dance master!"
+else
+  puts "Looks like you lost, maybe next time"
+end
+  
